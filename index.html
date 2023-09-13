@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día del Programador</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .heading {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #218838;
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .no:hover {
+            background-color: #c82333;
+        }
+
+                .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin: 0 0 20px;
+        }
+
+        .modal-content button {
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-content button:focus {
+            outline: none;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="heading">Feliz día programador</div>
+        <p>¿Te consideras programador?</p>
+        <div class="buttons">
+            <button class="yes" onclick="showCustomMessage(true)">Sí</button>
+            <button class="no" onclick="showCustomMessage(false)">No</button>
+        </div>
+    </div>
+
+    <!-- Modal personalizado -->
+    <div class="modal" id="customModal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function showCustomMessage(isProgrammer) {
+            const modalText = document.getElementById('modalText');
+            if (isProgrammer) {
+                modalText.textContent = "Feliz día programador de mi corazón.";
+            } else {
+                modalText.textContent = "Si lo sos, feliz día programador de mi vida <3";
+            }
+            document.getElementById('customModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>
